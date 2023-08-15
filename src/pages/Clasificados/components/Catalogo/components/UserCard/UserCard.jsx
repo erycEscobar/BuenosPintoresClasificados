@@ -1,6 +1,14 @@
+import { useState } from 'react';
 import './UserCard.scss';
+import { useFilterContext } from '../../../../filterContext/filterContext';
 
 const UserCard = ({key, userData}) => {
+
+    const { userToShow, setUserToShow } = useFilterContext();
+
+    const handleShowMoreData = () => {
+        setUserToShow(userData)
+    }
 
     return (
         <div className="userCard_container">
@@ -27,7 +35,7 @@ const UserCard = ({key, userData}) => {
                         Verificacion
                     </li>
                     <li>
-                        <button>
+                        <button onClick={handleShowMoreData}>
                             CONTACTAR
                         </button>
                     </li>

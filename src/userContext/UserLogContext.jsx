@@ -15,6 +15,10 @@ export const UserLogContextProvider = ({children}) => {
                 (updData) => {
                     const newData = updData.data();
                     const userData = {
+                        verificado: userLogged.verificado,
+                        plan1: userLogged.plan1,
+                        plan2: userLogged.plan2,
+                        plan3: userLogged.plan3,
                         email: userLogged.email,
                         name: newData.name,
                         surName: newData.surName,

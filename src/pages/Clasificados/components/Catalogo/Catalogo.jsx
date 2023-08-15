@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import Loader from '../../../../components/Loader/Loader';
 import ListUsers from './components/ListUsers/ListUsers';
 import { useFilterContext } from '../../filterContext/filterContext';
+import ShowUser from './components/ShowUser/ShowUser';
 
 const Catalogo = () => {
 
-    const { locationsFilter, selectedFilters } = useFilterContext();
+    const { locationsFilter, selectedFilters, userToShow } = useFilterContext();
     const [ users, setUsers ] = useState([]);
     const [ loader, setLoader ] = useState(true);
     const firebase = getFirestore();
@@ -45,12 +46,18 @@ if (activeSelectedFilters.length > 0) {
 
     //console.log({users})
 
+
+
     return (
         <div className='catalogo_container'>
             {loader ? (
                 <Loader />
             ) : (
-                <ListUsers users={users} />
+                userToShow !== null ? (
+                    <ShowUser />
+                ):(
+                    <ListUsers users={users} />
+                )
             )}
         </div>
     )

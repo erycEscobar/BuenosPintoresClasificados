@@ -1,7 +1,7 @@
 import './SuscriptionCard.scss';
 
 const SuscriptionCard = () => {
-
+    
     return (
         <div className='suscriptionCard_container'>
             <div className='suscriptionCard'>

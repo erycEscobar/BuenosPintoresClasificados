@@ -7,12 +7,15 @@ export const FilterContextProvider = ({children}) => {
 
     const [ selectedFilters, setSelectedFilters ] = useState(FilterOptionsList);
     const [ locationsFilter, setLocationsFilter ] = useState([]);
+    const [ userToShow, setUserToShow ] = useState(null);
 
     const sharedStates = {
         selectedFilters,
         setSelectedFilters,
         locationsFilter,
-        setLocationsFilter
+        setLocationsFilter,
+        userToShow,
+        setUserToShow,
     }
 
     //console.log({selectedFilters, locationsFilter});

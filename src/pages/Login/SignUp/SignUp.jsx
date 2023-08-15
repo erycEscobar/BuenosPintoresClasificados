@@ -13,6 +13,10 @@ const SignUp = () => {
     const [ loader, setLoader ] = useState(false);
     const [ userCreated, setUserCreated ] = useState(false);
     const [ signUpForm, setSignUpForm ] = useState({
+        verificado: false,
+        plan1: false,
+        plan2: false,
+        plan3: false,
         name: '',
         surName: '',
         email: '',
