@@ -1,0 +1,24 @@
+.footer_container {
+    background-color: #F5B400;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+
+    margin-top: auto;
+
+    .footer {
+        padding: 10px;
+        display: flex;
+        max-width: 1280px;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+
+        .logo_container {
+            font-family: 'Montserrat-Bold';
+            color: #222222;
+            font-size: 25px;
+        }
+    }
+}

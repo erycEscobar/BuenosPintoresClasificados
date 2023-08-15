@@ -1,0 +1,51 @@
+.userCard_container {
+
+    box-shadow: 10px 10px 5px 0px rgba(194,194,194,0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(194,194,194,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(194,194,194,0.75);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 500px;
+    height: 150px;  
+
+    .userCard_column01, .userCard_column02, .userCard_column03 {
+        position: relative;
+        height: 100%;
+        width: 30%;
+        ul {
+            li {
+                font-family: 'Montserrat-Regular';
+                font-weight: 600;
+                list-style: none;
+            }
+        }
+    }
+
+    .userCard_column02 {
+        ul {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+
+    .userCard_column03 {
+        ul {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-end;
+
+        }
+    }
+
+
+
+}

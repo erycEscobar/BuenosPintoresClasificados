@@ -1,0 +1,23 @@
+.modal_container {
+    font-family: 'Montserrat-Bold';
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex: 28;
+
+    button {
+        margin-top: 10px;
+        padding: 10px;
+        width: 300px;
+        background-color: #F5B400;
+        border: none;
+        font-family: 'Montserrat-Bold';
+        font-size: 16px;
+        color: #F5F5F5;
+        cursor: pointer;
+    }
+
+}

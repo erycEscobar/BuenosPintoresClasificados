@@ -1,0 +1,91 @@
+.clasificados_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    flex: 28;
+    gap: 20px;
+
+    .clasificados_column02 {
+        position: relative;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.filter_container {
+    position: relative;
+    height: 500px;
+    width: 400px;
+    background-color: #F5B400;
+    margin: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .filter {
+        position: relative;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 5px;
+
+        .filter_header {
+            font-family: 'Montserrat-Bold';
+        }
+
+        .filterLocation_searcher {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+
+            input {
+                position: relative;
+                height: 40px;
+                width: 85%;
+                padding: 10px;
+                font-family: 'Montserrat-Regular';
+            }
+
+        }
+
+        .filterLocation_actives {
+            ul {
+                display: flex;
+                gap: 10px;
+
+                li {
+                    list-style: none;
+                    display: flex;
+                    align-items: center;
+
+                    gap: 8px;
+                    background-color: #F5F5F5;
+                    padding: 8px;
+
+                    p {
+                        font-family: 'Montserrat-Regular';
+                        font-size: 15px;
+                    }
+
+                    button {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
+        }
+
+
+    }
+}
