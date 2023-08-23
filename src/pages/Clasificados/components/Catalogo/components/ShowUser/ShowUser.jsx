@@ -12,7 +12,7 @@ const ShowUser = () => {
 
     return (
         <div className='showUser_container'>
-            <ContactCard userInfo={userToShow} />
+            <ContactCard userInfo={userToShow.data} userId={userToShow.id} />
             <button onClick={handleButton}>
                 VOLVER
             </button>

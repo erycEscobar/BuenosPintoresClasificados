@@ -1,5 +1,5 @@
 import './NewUserProyectCard.scss';
-import addIcon from '../../../../../assets/photos/addIcon.png';
+import addIcon from '../../../../../../assets/photos/addIcon.png';
 import { useNavigate } from 'react-router-dom';
 
 

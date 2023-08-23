@@ -1,10 +1,50 @@
 .newUserProyect_container {
+    max-width: 960px;
+
+    button {
+        margin-top: 10px;
+        padding: 10px;
+        width: 150px;
+        background-color: #F5B400;
+        border: none;
+        font-family: 'Montserrat-Bold';
+        font-size: 15px;
+        color: #F5F5F5;
+        align-self: center;
+        cursor: pointer;
+    }
 
     form {
+        position: relative;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
         justify-content: center;
+
+        width: 100%;
+        gap: 50px;
+
+        .newUserProyect_column01 {
+            flex: 4;
+        }
+        .newUserProyect_column02 {
+            flex: 6;
+            .newUserProyect_photoGallery {
+                display: flex;
+                flex-wrap: wrap;
+                width: 550px;
+                height: 520px;
+                border: 1px #F5B400 solid;
+                border-radius: 2.5px;
+                overflow-y: auto;
+                li {
+                    list-style: none;
+                    img {
+                        width: 250px;
+                    }
+                }
+            }
+        }
 
         .newUserProyect_label {
             display: flex;
@@ -20,6 +60,7 @@
 
             .normalInput {
                 border: 1px #F5B400 solid;
+                border-radius: 2.5px;
                 width: 350px;
                 padding: 15px 30px;
                 font-family: 'Montserrat-Regular'; 
@@ -28,9 +69,12 @@
             textarea {
                 border: 1px #F5B400 solid;
                 width: 350px;
+                height: 255px;
                 padding: 15px 30px;
                 font-family: 'Montserrat-Regular'; 
             }
+
+
         }
 
         .newUserProyect_types {

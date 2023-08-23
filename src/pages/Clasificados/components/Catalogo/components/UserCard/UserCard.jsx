@@ -6,12 +6,17 @@ import locationIcon from '../../../../../../assets/photos/locationIcon.png';
 
 import PropTypes from 'prop-types';
 
-const UserCard = ({key, userData}) => {
+const UserCard = ({userId, userData}) => {
 
-    const { userToShow, setUserToShow } = useFilterContext();
+    console.log({userData, userId})
+
+    const { setUserToShow } = useFilterContext();
 
     const handleShowMoreData = () => {
-        setUserToShow(userData)
+        setUserToShow({
+            id: userId,    
+            data: userData,
+        })
     }
 
     return (
@@ -52,7 +57,7 @@ const UserCard = ({key, userData}) => {
 }
 
 UserCard.propTypes = {
-    key: PropTypes.number.isRequired,
+    userId: PropTypes.string.isRequired,
     userData: PropTypes.object.isRequired
 }
 

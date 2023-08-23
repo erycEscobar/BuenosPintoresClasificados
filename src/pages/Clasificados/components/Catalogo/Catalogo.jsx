@@ -21,30 +21,29 @@ const Catalogo = () => {
             locationsFilter.map(filter => console.log(filter));
             usersNeeded = query(usersCollection, where('location', 'in', locationsFilter.map(filter => filter)));
         }
-/*
-
-const activeSelectedFilters = selectedFilters.filter(filter => filter.isChecked);
-console.log({activeSelectedFilters});
-if (activeSelectedFilters.length > 0) {
-    activeSelectedFilters.map((filter) => {
-        console.log(filter)
-    })
-    //usersNeeded = query(usersCollection, where(usersNeeded, 'selectedField', 'in', activeSelectedFilters.map(filter => filter.value))) 
-}
-*/
-
+        /*
+        const activeSelectedFilters = selectedFilters.filter(filter => filter.isChecked);
+        console.log({activeSelectedFilters});
+        if (activeSelectedFilters.length > 0) {
+            activeSelectedFilters.map((filter) => {
+                console.log(filter)
+            })
+            //usersNeeded = query(usersCollection, where(usersNeeded, 'selectedField', 'in', activeSelectedFilters.map(filter => filter.value))) 
+        }
+        */
         getDocs(usersNeeded)
         .then(res => setUsers(
             res.docs.map(
-                user => ({
-                    ...user.data()
+                user => ({ 
+                    id: user.id, 
+                    data: user.data(),
                 })
             )
         )) 
         setLoader(false);
     }, [ locationsFilter, selectedFilters, firebase ])
 
-    //console.log({users})
+    console.log({users})
 
 
 

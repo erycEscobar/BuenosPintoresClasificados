@@ -1,111 +1,50 @@
-.infoUserCard {
-    box-shadow: 10px 10px 46px 4px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 10px 10px 46px 4px rgba(0,0,0,0.5);
-    -moz-box-shadow: 10px 10px 46px 4px rgba(0,0,0,0.5);
-
-    max-width: 650px;
-    max-height: 700px;
-
+.contactCard_container {
+    position: relative;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    gap: 20px;
+    flex: 1;
 
-    .line01 {
+
+
+    .contactCard_hero {
+        width: 100%;
+        height: 500px;
+        overflow: hidden; 
+        position: relative;
+        background-color: #222222;
         display: flex;
-        justify-content: space-evenly;
-        gap: 20px;
+        align-items: center;
+        justify-content: center;
+
+        box-shadow: 0px 23px 207px 0px rgba(0,0,0,0.32);
+        -webkit-box-shadow: 0px 23px 207px 0px rgba(0,0,0,0.32);
+        -moz-box-shadow: 0px 23px 207px 0px rgba(0,0,0,0.32);
 
         img {
-            max-width: 200px;
-
+            top: 0;
+            position: absolute; /* Posición absoluta para que la imagen esté en el fondo del contenedor */
+            width: 100%; /* Ancho del 100% para que la imagen se ajuste al contenedor */
+            object-fit: cover; /* Ajusta la imagen para cubrir todo el contenedor sin deformarse */
+            opacity: 0.5;
         }
 
-        .line01_colum02 {
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-
-            p {
-                font-family: 'Montserrat-Bold';
-                font-size: 25px;
-            }
-
-            div {
-                position: relative;
-                          
-                p {
-                    font-family: 'Montserrat-Regular';
-                    text-align: end;
-                }
-
-                ul {
-                    padding-left: 30px;
-                    li {
-                        font-family: 'Montserrat-Regular';
-                        font-size: 15px;
-                    }
-                }
-            }
-        }
-    }
-
-    .line02 {
-        position: relative;
-        width: 90%;
-        align-self: center;
-        div {
-            ul {
-                li {
-                    list-style: none;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-
-                    img {
-                        width: 25px;
-                    }
-
-                    p {
-                        font-family: 'Montserrat-Regular';
-
-                    }
-                }
-            }
-        }
-
-        .button_container {
-
-            display: flex;
-            justify-content: center;
-
-            button {
-                margin-top: 10px;
-                padding: 10px;
-                width: 150px;
-                background-color: #F5B400;
-                border: none;
-                font-family: 'Montserrat-Bold';
-                font-size: 15px;
-                color: #F5F5F5;
-                align-self: center;
-                cursor: pointer;
-    
-            }
-        }
-
-        
-    }
-    .line03 {
-        display: flex;
-        justify-content: center;
-        .description_container {
+        .contactCard_userData {
             position: relative;
-            width: 90%;
-            p {
-                font-family: 'Montserrat-Regular';
+       
+            .contactCard_userName {
+                font-family: 'Montserrat-Bold';
+                color: #e7e7e7;
+                font-size: 3.5rem;
             }
-        }
-        
+
+        }       
+    }
+
+    .contactCard_proyects {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex: 1;
     }
 }

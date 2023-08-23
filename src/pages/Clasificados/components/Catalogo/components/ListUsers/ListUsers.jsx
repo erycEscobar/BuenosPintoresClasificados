@@ -1,10 +1,10 @@
 import UserCard from "../UserCard/UserCard"
 
 
-const ListUsers = ({users=[], showDataUser}) => {
+const ListUsers = ({users}) => {
     
     return (
-        users.map( listUser => <UserCard key={listUser.id} userData={listUser} handle={showDataUser} /> )
+        users.map( listUser =>  <UserCard key={listUser.id} userId={listUser.id} userData={listUser.data} /> )
     )
 
 }

@@ -22,7 +22,8 @@ export const UserLogContextProvider = ({children}) => {
                         phoneNumber: newData.phoneNumber,
                         email: newData.email,
                         userAvatar: newData.userAvatar,
-
+                        
+                        trabajosRealizados: newData.trabajosRealizados,
                         precio: newData.precio,
                         pinturaDeMadera: newData.pinturaDeMadera,
                         trabajosEnAltura: newData.trabajosEnAltura,

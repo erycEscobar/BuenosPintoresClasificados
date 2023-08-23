@@ -1,9 +1,16 @@
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import './NewUserProyect.scss';
 import { useState } from 'react';
+import { firebaseStorage } from '../../firebase/config';
+import { v4 } from 'uuid';
+import { addDoc, collection, doc, getFirestore, increment, updateDoc } from 'firebase/firestore';
+import { UserAuth } from '../../userContext/userContext';
 
 const NewUserProyect = () => {
-    
-    const [workData, setWorkData] = useState({
+
+    const { userLogged } = UserAuth();
+    const [ imgToUpload, setImgToUpload ] = useState([]);
+    const [ workData, setWorkData ] = useState({
         workName: '',
         types: {
           durlock: false,
@@ -27,10 +34,9 @@ const NewUserProyect = () => {
             },
           }));
         } else if (type === 'file') {
-          setWorkData((prevData) => ({
-            ...prevData,
-            images: [...prevData.images, ...files],
-          }));
+            if (files.length <= 10) {
+                setImgToUpload([...imgToUpload, ...files])
+            }
         } else {
           setWorkData((prevData) => ({
             ...prevData,
@@ -38,95 +44,152 @@ const NewUserProyect = () => {
           }));
         }
     };
+
+    async function uploadImage(image) {
+        const storageRef = ref(firebaseStorage, `${userLogged.uid}/${v4()}`);
+        try {
+            await uploadBytes(storageRef, image);
+            const url = await getDownloadURL(storageRef);
+            return url;
+        } catch (error) {
+            console.error("Error al cargar la imagen:", error);
+            throw error;
+        }
+    }
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Aquí puedes hacer algo con los datos del trabajo
-        console.log(workData);
+    async function sendToFirebase(images) {
+        const firestore = getFirestore();
+        const docuRef = collection(firestore, `Users/${userLogged.uid}/MisTrabajos`);
+        const userRef = doc(firestore, `Users/${userLogged.uid}`);
+        try {
+            await addDoc(docuRef, {...workData, images });
+            await updateDoc(userRef, { trabajosRealizados: increment(1) });
+        } catch (error) {
+            alert(error);
+        }
+    }
+
+    const handleGuardar = async () => {
+        try {
+            const uploadedImageUrls = await Promise.all(
+                imgToUpload.map(async (img) => {
+                    const imgUrl = await uploadImage(img);
+                    return imgUrl;
+                })
+            );
+
+            const images = [...workData.images, ...uploadedImageUrls];
+            console.log(images);
+            setWorkData((prevData) => ({
+                ...prevData,
+                images: images
+            }));
+            //console.log({ workData });
+            await sendToFirebase(images);
+            console.log("Trabajo guardado en Firebase");
+        } catch (error) {
+            console.error("Error:", error);
+        }
     };
 
-    console.log({workData});
+    //console.log({workData, imgToUpload});
     
     return (
         <div className='newUserProyect_container'>
-          <form onSubmit={handleSubmit}>
+            <form>
 
-            <label className='newUserProyect_label'>
-                <p>Ingrese nombre del trabajo:</p>
-                <input className='normalInput'
-                    type="text"
-                    name="workName"
-                    value={workData.workName}
-                    onChange={handleInputChange}
-                />
-            </label>
+                <div className='newUserProyect_column01'>
 
-            <label className='newUserProyect_label'>
-                <p>Seleccione el/los tipo/s de trabajo/s:</p>
-                <div className='newUserProyect_types'>
-                    <label>
-                        <input className='checkboxesInputs'
-                            type="checkbox"
-                            name="durlock"
-                            checked={workData.types.durlock}
+                    <label className='newUserProyect_label'>
+                        <p>Ingrese nombre del trabajo:</p>
+                        <input className='normalInput'
+                            type="text"
+                            name="workName"
+                            value={workData.workName}
                             onChange={handleInputChange}
                         />
-                        Durlock
                     </label>
-                    <label>
-                        <input className='checkboxesInputs'
-                            type="checkbox"
-                            name="pinturaDeMadera"
-                            checked={workData.types.pinturaDeMadera}
+
+                    <label className='newUserProyect_label'>
+                        <p>Seleccione el/los tipo/s de trabajo/s:</p>
+                        <div className='newUserProyect_types'>
+                            <label>
+                                <input className='checkboxesInputs'
+                                    type="checkbox"
+                                    name="durlock"
+                                    checked={workData.types.durlock}
+                                    onChange={handleInputChange}
+                                />
+                                Durlock
+                            </label>
+                            <label>
+                                <input className='checkboxesInputs'
+                                    type="checkbox"
+                                    name="pinturaDeMadera"
+                                    checked={workData.types.pinturaDeMadera}
+                                    onChange={handleInputChange}
+                                />
+                                Pintura de madera
+                            </label>
+                            <label>
+                                <input className='checkboxesInputs'
+                                    type="checkbox"
+                                    name="trabajosEnAltura"
+                                    checked={workData.types.trabajosEnAltura}
+                                    onChange={handleInputChange}
+                                />
+                                Trabajos en altura
+                            </label>
+                            <label>
+                                <input className='checkboxesInputs'
+                                    type="checkbox"
+                                    name="exteriores"
+                                    checked={workData.types.exteriores}
+                                    onChange={handleInputChange}
+                                />
+                                Exteriores
+                            </label>
+                        </div>
+                    </label>
+
+                    <label className='newUserProyect_label'>
+                        <p>Redacte una pequeña descripción del trabajo:</p>
+                        <textarea
+                            name="description"
+                            value={workData.description}
                             onChange={handleInputChange}
                         />
-                        Pintura de madera
                     </label>
-                    <label>
-                        <input className='checkboxesInputs'
-                            type="checkbox"
-                            name="trabajosEnAltura"
-                            checked={workData.types.trabajosEnAltura}
-                            onChange={handleInputChange}
-                        />
-                        Trabajos en altura
-                    </label>
-                    <label>
-                        <input className='checkboxesInputs'
-                            type="checkbox"
-                            name="exteriores"
-                            checked={workData.types.exteriores}
-                            onChange={handleInputChange}
-                        />
-                        Exteriores
-                    </label>
-                    {/* Repite para los otros tipos */}
+
                 </div>
-            </label>
 
-            <label className='newUserProyect_label'>
-                <p>Redacte una pequeña descripción del trabajo:</p>
-                <textarea
-                    name="description"
-                    value={workData.description}
-                    onChange={handleInputChange}
-                />
-            </label>
 
-            <label className='newUserProyect_label'>
-                <p>Imágenes (hasta 10):</p>
-                <input
-                    type="file"
-                    name="images"
-                    multiple
-                    accept=".jpg, .jpeg, .png"
-                    onChange={handleInputChange}
-                />
-            </label>
 
-            <button type="submit">GUARDAR</button>
+                <div className='newUserProyect_column02'>
 
-          </form>
+                    <label className='newUserProyect_label'>
+                        <p>Imágenes (hasta 10):</p>
+                        <input
+                            type="file"
+                            name="images"
+                            multiple accept=".jpg, .jpeg, .png"
+                            onChange={handleInputChange}
+                        />
+                    </label>
+                        <ul className='newUserProyect_photoGallery'>
+                            {imgToUpload.length > 0 && imgToUpload.map((image, index) => {
+                                return (
+                                    <li key={index}>
+                                        <img src={URL.createObjectURL(image)} alt=""/>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    
+                </div>
+
+            </form>
+            <button onClick={handleGuardar}>GUARDAR</button>
         </div>
     );
 }

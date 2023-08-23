@@ -3,60 +3,32 @@ import LocationIcon from '../../../../../../../assets/photos/locationIcon.png';
 import EmailIcon from '../../../../../../../assets/photos/emailIcon.png';
 import PhoneIcon from '../../../../../../../assets/photos/phoneIcon.png';
 import PropTypes from 'prop-types';
+import UploadedProyects from '../../../../../../UserProfile/components/UserProyects/components/UploadedProyects/UploadedProyects';
 
-const ContactCard = ({userInfo}) => {
+const ContactCard = ({userInfo, userId}) => {
 
     return (
-        <div className='infoUserCard'>
-            <div className='line01'>
+        <div className='contactCard_container'>
+            <div className='contactCard_hero' >
                 <img src={userInfo.userAvatar} alt="" />
-                <div className='line01_colum02'>
-                    <p>{userInfo.name} {userInfo.surName}</p>
-                    <div>
-                        <p>Servicios</p>
-                        <ul>
-                            {userInfo.pinturaDeMadera && <li>Pintura de Madera</li>}
-                            {userInfo.trabajosEnAltura && <li>Trabajos en Altura</li>}
-                            {userInfo.durlock && <li>Durlock</li>}
-                            {userInfo.exteriores &&<li>Exteriores</li>}
-                        </ul>
-                    </div>
+                <div className='contactCard_userData'>
+                    <p className='contactCard_userName'>
+                        {userInfo.name} {userInfo.surName}
+                    </p>
+                    
+
                 </div>
             </div>
-
-            <div className='line02'>
-                <div>
-                    <ul>
-                        <li>
-                            <img src={EmailIcon} alt="" />
-                            <p>{userInfo.email}</p>
-                        </li>
-                        <li>
-                            <img src={PhoneIcon} alt="" />
-                            <p>{userInfo.phoneNumber}</p>
-                        </li>
-                        <li>
-                            <img src={LocationIcon} alt="" />
-                            <p>{userInfo.location}</p>
-                        </li>
-                    </ul>
-                </div>
+            <div className='contactCard_proyects'>
+                <UploadedProyects userId={userId} />
             </div>
-
-            <div className='line03'>
-                <div className='description_container'>
-                    <p>Lorem ipsum, dolor sit amet. Laudantium voluptate 
-                    officiis at cumque consequatur, labore corrupti, 
-                    perferendis optio voluptatum, temporibus maxime adipisci!
-                    distinctio eos velit excepturi molestias fuga nemo.</p>
-                </div>
-            </div>
-
+           
         </div>
     )
 }
 
 ContactCard.propTypes = {
+    userId: PropTypes.string.isRequired,
     userInfo: PropTypes.object.isRequired,
 }
 

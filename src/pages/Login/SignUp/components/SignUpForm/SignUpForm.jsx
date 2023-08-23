@@ -24,6 +24,7 @@ const SignUpForm = ({actualStep}) => {
         password: '',
         userAvatar: '',
 
+        trabajosRealizados: 0,
         precio: 0,
         pinturaDeMadera: false,
         trabajosEnAltura: false,
@@ -96,8 +97,7 @@ const SignUpForm = ({actualStep}) => {
                     </div>
                 ):( actualStep === 3 &&
                     <div className='signUp'>
-                        <p className='signUp_Instructions'>Crear Cuenta</p>
-                        <button onClick={Submit}>REGISTRARSE</button>
+                        <button onClick={Submit}>CREAR CUENTA</button>
                     </div>
                 ))))}
             </div>
