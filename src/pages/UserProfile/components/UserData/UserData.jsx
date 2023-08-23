@@ -1,18 +1,20 @@
-
-import { UserTest } from '../../UserTest';
-
 import phoneIcon from '../../../../assets/photos/phoneIcon.png';
 import emailIcon from '../../../../assets/photos/emailIcon.png';
 import starIcon from '../../../../assets/photos/starIcon.png';
+import UploadFileButton from '../../../../components/UploadFileButton/UploadFileButton';
 
+import PropTypes from 'prop-types';
 
 const UserData = ({userInfo}) => {
 
     return (
-
         <section className='userData_container'>
                     <div className='userAvatar'>
-                        <img src={UserTest.userAvatar} alt="" />
+                        {userInfo.userAvatar === '' ? (
+                            <UploadFileButton />
+                        ):(
+                            <img src={userInfo.userAvatar} alt="" />
+                        )}
                     </div>
                     <div className='userData'>
                         <div className='firstLine'>
@@ -33,7 +35,7 @@ const UserData = ({userInfo}) => {
                             <ul>
                                 <li>
                                     <img src={phoneIcon} alt="" />
-                                    {UserTest.phoneNumber}
+                                    {userInfo.phoneNumber}
                                 </li>
                                 <li>
                                     <img src={emailIcon} alt="" />
@@ -42,8 +44,12 @@ const UserData = ({userInfo}) => {
                             </ul>
                         </div>
                     </div>
-                </section>
-        
+                </section>      
     )
+};
+
+UserData.propTypes = {
+    userInfo: PropTypes.object.isRequired,
 }
+
 export default UserData

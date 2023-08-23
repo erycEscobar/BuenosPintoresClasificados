@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 import { UserAuth } from "./userContext";
+import PropTypes from 'prop-types';
 
 const UserLogContext = createContext();
 
@@ -15,15 +16,23 @@ export const UserLogContextProvider = ({children}) => {
                 (updData) => {
                     const newData = updData.data();
                     const userData = {
-                        verificado: userLogged.verificado,
-                        plan1: userLogged.plan1,
-                        plan2: userLogged.plan2,
-                        plan3: userLogged.plan3,
-                        email: userLogged.email,
                         name: newData.name,
                         surName: newData.surName,
-                        phone: newData.phone,
+                        location: newData.location,
+                        phoneNumber: newData.phoneNumber,
+                        email: newData.email,
+                        userAvatar: newData.userAvatar,
 
+                        precio: newData.precio,
+                        pinturaDeMadera: newData.pinturaDeMadera,
+                        trabajosEnAltura: newData.trabajosEnAltura,
+                        durlock: newData.durlock,
+                        exteriores: newData.exteriores,
+                        
+                        verificado: newData.verificado,
+                        plan1: newData.plan1,
+                        plan2: newData.plan2,
+                        plan3: newData.plan3,
                     };
                     setUserInfo(userData);
                 }
@@ -34,13 +43,17 @@ export const UserLogContextProvider = ({children}) => {
         } else {
             setUserInfo({});
         }
-    }, [userLogged]);
+    }, [userLogged, firestore]);
 
     return (
         <UserLogContext.Provider value={{ userInfo }}>
             {children}
         </UserLogContext.Provider>
     );
+};
+
+UserLogContextProvider.propTypes = {
+    children: PropTypes.node.isRequired,
 };
 
 export const UserLog = () => {

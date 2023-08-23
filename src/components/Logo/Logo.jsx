@@ -6,7 +6,7 @@ const Logo = () => {
     return (
         <section className='logo_container'>
             <Link to='./'>
-                BuenosPintores
+                BuenosPintores/<span>Clasificados</span>
             </Link>
         </section>
     )

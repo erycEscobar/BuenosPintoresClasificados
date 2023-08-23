@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
-import paintWorker from '../../../../assets/photos/pintorHero.png'
+import { Link } from 'react-router-dom';
+import './HeroSection.scss';
+import paintWorker from '../../../../assets/photos/pintorHero.png';
 
 const HeroSection = () => {
 

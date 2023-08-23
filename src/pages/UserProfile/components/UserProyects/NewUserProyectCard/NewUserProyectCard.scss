@@ -1,0 +1,29 @@
+.newUserProyectCard_container {
+    border: 2px solid #F5B400;
+    border-radius: 2.5px;
+
+    width: 200px;
+    height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: transform 0.15s ease-in-out; 
+    will-change: transform; 
+
+    .newUserProyectCard_instruction {
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .newUserProyectCard_icon {
+        width: 50px;
+    }
+}
+
+.newUserProyectCard_container:hover {
+    transform: scale(1.1);
+}

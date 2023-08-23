@@ -1,41 +1,60 @@
 .suscriptionCard_container {
-    border: 1px solid black;
-    
-    height: 250px;
-    width: 200px;
-
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    flex: 1;
+    .suscriptionCard_container {
+        .suscriptionCard {
+            box-shadow: 0px 0px 125px 31px rgba(0,0,0,0.51);
+            -webkit-box-shadow: 0px 0px 125px 31px rgba(0,0,0,0.51);
+            -moz-box-shadow: 0px 0px 125px 31px rgba(0,0,0,0.51);
 
-    .suscriptionCard {
-        position: relative;
-        height: 80%;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
 
-        .suscriptionCard_button {
-            position: relative;
-            width: 100%;
-            button {
-                position: relative;
-                padding: 10px;
-                width: 100%;
-                background-color: #F5B400;
-                border: none;
+            height: 300px;
+            width: 250px;
+            border-radius: 2.5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+
+            li {
+                list-style: none;
+            }
+            .suscriptionCard_title {
                 font-family: 'Montserrat-Bold';
-                font-size: 15px;
-                color: #F5F5F5;
-                cursor: pointer;
+                padding: 10px;
+            }
+            .suscriptionCard_description {
+                font-family: 'Montserrat-Regular';
+                padding: 10px;
+            }
+            .buyCard_price {
+                font-family: 'Montserrat-Bold';
+                padding: 10px;
+            }
+            .suscriptionCard_button {
+                padding: 10px;
+                button {
+                    margin-top: 10px;
+                    padding: 10px;
+                    width: 200px;
+                    background-color: #F5B400;
+                    border: none;
+                    font-family: 'Montserrat-Bold';
+                    font-size: 16px;
+                    color: #F5F5F5;
+                    cursor: pointer;
+                }
             }
         }
 
     }
 
-
-
-
+    .recomendedLabel {
+        font-family: 'Montserrat-Bold';
+        font-size: 25px;
+        padding: 15px 0px;
+    }
 }

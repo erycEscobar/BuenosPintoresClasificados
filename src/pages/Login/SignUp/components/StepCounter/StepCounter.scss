@@ -1,0 +1,36 @@
+.stepCounter {
+    display: flex;
+    align-items: center;
+
+    .step {
+        font-family: 'Montserrat-Bold';
+        font-size: 30px;
+        padding: 20px 30px;
+        margin: 5px;
+        border: 1px solid #222222;
+        border-radius: 100px;
+        background-color: #F5F5F5;
+        color: #909090;
+    }
+
+    .step.active {
+        background-color: #F5B400;
+        color: #222222;
+    }
+
+    .space {
+        display: block;
+        height: 0px;
+        width: 200px;
+        border: 1px solid #222222;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .stepCounter {
+
+        .space {
+            width: 35px;
+        }
+    }
+}

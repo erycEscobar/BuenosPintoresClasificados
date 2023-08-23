@@ -14,6 +14,20 @@ export const SignUpInputsList = [
         autoComplete: 'off',
     },
     {
+        id: 6,
+        name: 'location',
+        placeholder: 'Localidad',
+        type: 'text',
+        autoComplete: 'off',
+    },
+    {
+        id: 7,
+        name: 'phoneNumber',
+        placeholder: 'Numero de contacto',
+        type: 'tel',
+        autoComplete: 'off',
+    },
+    {
         id: 3,
         name: 'email',
         placeholder: 'E-mail',
@@ -25,27 +39,6 @@ export const SignUpInputsList = [
         name: 'password',
         placeholder: 'Contraseña',
         type: 'password',
-        autoComplete: 'off',
-    },
-    {
-        id: 5,
-        name: 'precio',
-        placeholder: 'Precio por m2 en ARS',
-        type: 'number',
-        autoComplete: 'off',
-    },
-    {
-        id: 6,
-        name: 'localidad',
-        placeholder: 'Localidad',
-        type: 'text',
-        autoComplete: 'off',
-    },
-    {
-        id: 7,
-        name: 'phoneNumber',
-        placeholder: 'Numero de contacto',
-        type: 'tel',
         autoComplete: 'off',
     },
 ]

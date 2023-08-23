@@ -1,0 +1,47 @@
+.singUp_container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 28;
+
+    .signUp_Instructions {
+        font-family: 'Montserrat-Regular';
+        padding: 25px 0px;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        
+
+        input {
+            border: 1px #F5B400 solid;
+            width: 350px;
+            padding: 15px 30px;
+            font-family: 'Montserrat-Regular';
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 300px;
+            background-color: #F5B400;
+            border: none;
+            font-family: 'Montserrat-Bold';
+            font-size: 16px;
+            color: #F5F5F5;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .signUp {
+        width: 350px;
+    }
+}

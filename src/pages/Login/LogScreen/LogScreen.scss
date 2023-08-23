@@ -1,0 +1,40 @@
+.pintorUser_container {
+
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .pintorUser_start {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        gap: 10px;
+
+        p {
+            font-family: 'Montserrat-Regular';
+        }
+
+        a {
+            display: block;
+            font-family: 'Montserrat-Bold';
+            color: #F5F5F5;
+            background-color: #333333;
+            padding: 10px;
+            width: 250px;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .pintorUser_start {
+        flex-direction: column;
+        
+    }
+    
+}

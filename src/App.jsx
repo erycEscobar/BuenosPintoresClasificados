@@ -11,8 +11,12 @@ import './App.scss'
 import SignOut from './pages/Login/SignOut/SignOut'
 import Clasificados from './pages/Clasificados/Clasificados'
 import Loader from './components/Loader/Loader'
-function App() {
 
+import Dev from './pages/Dev/Dev'
+import LogScreen from './pages/Login/LogScreen/LogScreen'
+import NewUserProyect from './pages/NewUserProyect/NewUserProyect'
+
+function App() {
   return (
     <BrowserRouter>
       <AuthContextProvider>
@@ -20,12 +24,17 @@ function App() {
           <NavBar />
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/LogScreen' element={<LogScreen />} />
               <Route path='/SignIn' element={<SignIn />} />
               <Route path='/SignUp' element={<SignUp />} />
               <Route path='/SignOut' element={<SignOut />} />
               <Route path='/UserProfile' element={<UserProfile />} />
+              <Route path='/UserProfile/NewUserProyect' element={<NewUserProyect />} />
               <Route path='/Clasificados' element={<Clasificados /> } />
               <Route path='/Loader' element={<Loader />} />
+
+              <Route path='/dev' element={<Dev /> } />
+
             </Routes>
           <Footer />
         </UserLogContextProvider>

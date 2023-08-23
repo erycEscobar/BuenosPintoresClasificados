@@ -5,14 +5,14 @@
     justify-content: center;
     height: 60px;
 
-    margin-top: auto;
+    //margin-top: auto;
 
     .footer {
         padding: 10px;
         display: flex;
         max-width: 1280px;
         width: 100%;
-        justify-content: space-around;
+        justify-content: flex-end;
         align-items: center;
 
         .logo_container {

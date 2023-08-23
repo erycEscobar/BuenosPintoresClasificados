@@ -19,7 +19,7 @@ const Catalogo = () => {
         
         if (locationsFilter && locationsFilter.length > 0) {
             locationsFilter.map(filter => console.log(filter));
-            usersNeeded = query(usersCollection, where('localidad', 'in', locationsFilter.map(filter => filter)));
+            usersNeeded = query(usersCollection, where('location', 'in', locationsFilter.map(filter => filter)));
         }
 /*
 
@@ -56,7 +56,10 @@ if (activeSelectedFilters.length > 0) {
                 userToShow !== null ? (
                     <ShowUser />
                 ):(
+                    
                     <ListUsers users={users} />
+                    /*
+                    */ 
                 )
             )}
         </div>

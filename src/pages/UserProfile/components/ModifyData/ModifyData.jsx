@@ -4,6 +4,7 @@ import { ModifyInputsList } from "./ModifyInputsList";
 import { useState } from 'react';
 import { doc, getFirestore, updateDoc } from 'firebase/firestore';
 import { UserAuth } from '../../../../userContext/userContext';
+import PropTypes from 'prop-types';
 
 const ModifyData = ({handleBack}) => {
 
@@ -45,9 +46,11 @@ const ModifyData = ({handleBack}) => {
 
                 <GenerateForm 
                     inputsList={ModifyInputsList}
+                    handleChange={onChange}
                     buttonName='Guardar Cambios'
-                    handleChnage={onChange}
                     handleSubmit={Submit}
+                    actualValues={itemsToModify}
+                    submitButton={true}
                 />
 
                 <button onClick={handleBack}>
@@ -56,6 +59,11 @@ const ModifyData = ({handleBack}) => {
             </div>
         </div>
     )
+};
 
-}
+ModifyData.propTypes = {
+    handleBack: PropTypes.func.isRequired,
+
+};
+
 export default ModifyData

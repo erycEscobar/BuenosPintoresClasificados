@@ -10,7 +10,7 @@
         display: flex;
         max-width: 1280px;
         width: 100%;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
 
         .navBarOptions_container {
@@ -34,5 +34,16 @@
             }
         }
 
+        button {
+            display: block;
+            font-family: 'Montserrat-Regular';
+            color: #F5F5F5;
+            background-color: #333333;
+            padding: 10px;
+            width: 250px;
+            text-align: center;
+            cursor: pointer;
+        }
     }
 }
+

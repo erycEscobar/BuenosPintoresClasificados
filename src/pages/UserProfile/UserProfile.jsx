@@ -5,6 +5,7 @@ import SuscriptionCard from './components/SuscriptionCard/SuscriptionCard';
 import { useState } from 'react';
 import UserData from './components/UserData/UserData';
 import ModifyData from './components/ModifyData/ModifyData';
+import UserProyects from './components/UserProyects/UserProyects';
 
 
 const UserProfile = () => {
@@ -32,21 +33,24 @@ const UserProfile = () => {
                         </section>
         
                         <UserData userInfo={userInfo} />
-        
-                        <section className='userSuscriptions'>
-                            <p>
-                                Suscripciones
-                            </p>
-                            <ul>
-                                <li><SuscriptionCard /></li>
-                                <li><SuscriptionCard /></li>
-                                <li><SuscriptionCard /></li>
-                            </ul>
-                        </section>
-        
+
+                        {(userInfo.plan1 || userInfo.plan2 || userInfo.plan3) ? (
+                            <UserProyects />
+                        ):(
+                            <section className='userSuscriptions'>
+                                <p className='userSuscriptions_Title'>
+                                    Suscripciones
+                                </p>
+                                <ul>
+                                    <li><SuscriptionCard planNumber={1} months={1} price={4300} recomended={false} /></li>
+                                    <li><SuscriptionCard planNumber={2} months={6} price={9500} recomended={true} /></li>
+                                    <li><SuscriptionCard planNumber={3} months={12} price={20000} recomended={false} /></li>
+                                </ul>
+                            </section>
+                        )}      
                     </div>
                 )}
-                </div>
+        </div>
     )
     
 }

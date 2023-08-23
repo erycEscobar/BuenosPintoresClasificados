@@ -1,7 +1,7 @@
 .clasificados_container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: space-between;
     position: relative;
     width: 100%;
     flex: 28;
@@ -9,10 +9,11 @@
 
     .clasificados_column02 {
         position: relative;
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        flex: 1;
+        overflow-y: auto;
+        //display: flex;
+        //align-items: center;
+        //justify-content: center;
     }
 }
 
@@ -21,7 +22,6 @@
     height: 500px;
     width: 400px;
     background-color: #F5B400;
-    margin: 10px;
 
     display: flex;
     align-items: center;

@@ -48,9 +48,11 @@ const SignIn = () => {
                     <div className='signIn'>
                         <GenerateForm 
                             inputsList={SignInInputsList} 
-                            handleChnage={onChange} 
+                            handleChange={onChange} 
                             buttonName='Iniciar Sesión'
                             handleSubmit={Submit}
+                            actualValues={signInForm}
+                            submitButton={true}
                         />
                     </div>
                 </div>

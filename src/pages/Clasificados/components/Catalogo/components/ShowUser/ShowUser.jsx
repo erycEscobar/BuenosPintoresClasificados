@@ -1,5 +1,5 @@
-import UserData from '../../../../../UserProfile/components/UserData/UserData';
 import { useFilterContext } from '../../../../filterContext/filterContext'
+import ContactCard from './ContactCard/ContactCard';
 import './ShowUser.scss'
 
 const ShowUser = () => {
@@ -12,7 +12,7 @@ const ShowUser = () => {
 
     return (
         <div className='showUser_container'>
-            <UserData userInfo={userToShow} />
+            <ContactCard userInfo={userToShow} />
             <button onClick={handleButton}>
                 VOLVER
             </button>

@@ -1,6 +1,7 @@
 .catalogo_container {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 15px;
+    flex: 1;
 }
