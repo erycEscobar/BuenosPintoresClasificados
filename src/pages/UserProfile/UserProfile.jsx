@@ -13,6 +13,7 @@ const UserProfile = () => {
     const { userInfo } = UserLog();
     const [ modify, setModify ] = useState(false);
 
+    
     const viewModify = () => {
         console.log(userInfo);
         setModify(!modify);
@@ -21,6 +22,7 @@ const UserProfile = () => {
     return (
 
         <div className='userProfile_container'>
+
                 { modify ? (
                     <ModifyData handleBack={viewModify} />
                 ) : (
@@ -42,7 +44,7 @@ const UserProfile = () => {
                                     Suscripciones
                                 </p>
                                 <ul>
-                                    <li><SuscriptionCard planNumber={1} months={1} price={4300} recomended={false} /></li>
+                                    <li><SuscriptionCard planNumber={1} months={1} price={4300} recomended={false}/></li>
                                     <li><SuscriptionCard planNumber={2} months={6} price={9500} recomended={true} /></li>
                                     <li><SuscriptionCard planNumber={3} months={12} price={20000} recomended={false} /></li>
                                 </ul>

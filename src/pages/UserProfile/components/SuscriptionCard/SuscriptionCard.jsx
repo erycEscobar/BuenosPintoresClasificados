@@ -1,15 +1,46 @@
+import axios from 'axios';
 import { UserAuth } from '../../../../userContext/userContext';
 import './SuscriptionCard.scss';
 import { SuscriptionActivation } from './components/SuscriptionActivation.jsx/SuscriptionActivation';
+import { useEffect, useState } from 'react';
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+import queryString from 'query-string';
+
+initMercadoPago('APP_USR-a282cd2b-aacb-4760-9fb5-f4a0d1a375f8');
 
 const SuscriptionCard = ({planNumber, months, price, recomended}) => {
     
     const { userLogged } = UserAuth();
     const plan = 'plan' + planNumber;
+    const [preferenceId, setPreferenceId] = useState();
+    const prodMode = import.meta.env.MODE === 'production';
 
-    const handleComprar = () => {
-        console.log({plan});
-        SuscriptionActivation(plan, userLogged.uid);
+    const handleComprar = async () => {
+        
+        const req = await axios.get(prodMode ? `https://us-central1-buenospintores-23a2b.cloudfunctions.net?plan=${planNumber}` : `/api/app/create-preference?plan=${planNumber}`);
+        setPreferenceId(req.data.id);
+    }
+
+    const handleOnSubmit = () => {
+        setPreferenceId(null);
+    }
+
+    useEffect(() => {
+        handleCheckPayment();
+    }, [])
+
+    const handleCheckPayment = async () => {
+        if (window.location.search.length) {
+            const params = queryString.parse(window.location.search);
+            const paymentId = params.payment_id;
+    
+            const req = await axios.get(prodMode ? `https://us-central1-buenospintores-23a2b.cloudfunctions.net?id=${paymentId}` : `/api/app/notificaciones?id=${paymentId}`);
+            const statusPayment = req.data.paymentInfo.body.status;
+            
+            if (statusPayment === 'approved') {
+                SuscriptionActivation(plan, userLogged.uid);
+            }
+        }
     }
 
     return (
@@ -26,9 +57,11 @@ const SuscriptionCard = ({planNumber, months, price, recomended}) => {
                         <p>$ {price}</p>
                     </li>
                     <li className='suscriptionCard_button'>
-                        <button onClick={handleComprar}>
+                        {!preferenceId ? <button onClick={handleComprar}>
                             COMPRAR
                         </button>
+                        : <Wallet onSubmit={handleOnSubmit} locale='es-AR' initialization={{ preferenceId: preferenceId, redirectMode: 'self' }} />
+                        }
                     </li>
                 </ul>
                 {recomended && <p className='recomendedLabel' >RECOMENDADO!</p> }
