@@ -1,7 +1,32 @@
 .userProyects_container {
-    padding-top: 50px;
+
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 25px;
+    gap: 25px;   
+    height: 780px;
+    width: 100%;
+    overflow-x: auto;
+    border: 2.5px solid #F5B400;
+    border-radius: 2.5px;
+
+    .scrolling-wrapper {
+        padding-top: 12px;
+        display: flex;
+        gap: 10px;
+        width: 680px;
+        height: 300px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        //overflow-x: auto;
+        //align-items: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .userProyects_container {
+        height: 275px;
+        .scrolling-wrapper {
+            width: 100%;
+        }
+    }
 }

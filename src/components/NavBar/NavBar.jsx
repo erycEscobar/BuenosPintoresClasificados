@@ -14,10 +14,11 @@ function NavBar() {
             <div className='navBar'>
                 <Logo />
                 {userLogged && (
-                    <section className='navBarOptions_container'>
-                        <LinksToList optionsList={UserOptions} />
-                    </section>
-                )}
+                        <section className='navBarOptions_container'>
+                            <LinksToList optionsList={UserOptions} />
+                        </section>
+                    )
+                }
             </div>
         </div>
     );

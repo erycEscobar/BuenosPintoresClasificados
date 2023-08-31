@@ -1,0 +1,93 @@
+.userCard_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 320px;
+    height: 150px;  
+    border: 2px solid #F5B400;
+    border-radius: 5px;
+    background-color: #222222;
+
+    .userCard_column01, .userCard_column02 {
+        position: relative;
+        height: 100%;
+        width: 30%;
+        ul {
+            li {
+                font-family: 'Montserrat-Regular';
+                font-weight: 600;
+                list-style: none;
+                color: #F5F5F5;
+            }
+        }
+    }
+
+    .userCard_column01 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 4.5;
+
+        .userCard_avatar {
+            position: relative;
+
+
+            img {
+                position: relative;
+                width: 100px;
+                height: 100px;
+                border-radius: 100px;    
+                background-color: #F5B400;
+            }
+        }
+
+    }
+
+    .userCard_column02 {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 5.5;
+        padding-right: 10px;
+
+        ul {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+
+            li { 
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 5px;
+
+                .verification {
+                    width: 25px;
+                }
+                .noVerification {
+                    width: 25px;
+                    filter: grayscale(100%);
+                }
+
+                img {
+                    width: 25px;
+                }
+
+                button {
+                    padding: 10px;
+                    width: 120px;
+                    background-color: #F5B400;
+                    border: none;
+                    font-family: 'Montserrat-Bold';
+                    font-size: 15px;
+                    color: #F5F5F5;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

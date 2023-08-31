@@ -20,14 +20,17 @@ const FilterLocation = () => {
 
     return (
         <section className='filterLocation_searcher'>
-            <input 
-                type="text" 
-                placeholder='Busca cerca de tu localidad'
-                value={inputSearcher}
-                onChange={handleInputSearcher}
-                onKeyDown={handleEnter}
-            />
-            <img src={searchIcon} alt="" width='20px' />
+            <p>UN PINTOR CERCA DE TU LOCALIDAD</p>
+            <div>
+                <input 
+                    type="text" 
+                    placeholder='Localidad'
+                    value={inputSearcher}
+                    onChange={handleInputSearcher}
+                    onKeyDown={handleEnter}
+                />
+                <img src={searchIcon} alt="" width='20px' />
+            </div>
         </section>
     )
 

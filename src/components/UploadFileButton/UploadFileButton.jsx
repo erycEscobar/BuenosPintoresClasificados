@@ -1,10 +1,10 @@
 import { uploadFile } from '../../firebase/config';
-import profileIcon from '../../assets/photos/profileIcon.png' 
+
 import './UploadFileButton.scss';
 import { UserAuth } from '../../userContext/userContext';
 import { doc, getFirestore, updateDoc } from 'firebase/firestore';
 
-const UploadFileButton = () => {     
+const UploadFileButton = ({profilePhoto}) => {     
 
     const { userLogged } = UserAuth();
 
@@ -41,7 +41,7 @@ const UploadFileButton = () => {
     return (
             <div className="file-upload-container">
                 <label htmlFor="fileInput" className="custom-file-upload">
-                    <img src={profileIcon} alt="Subir imagen" />
+                    <img src={profilePhoto} alt="Subir imagen" />
                     <input
                     id="fileInput"
                     type="file"

@@ -1,4 +1,4 @@
-import ProyectCard from "../ProyectCard.jsx/ProyectCard"
+import ProyectCard from "../ProyectCard/ProyectCard"
 
 const ListProyects = ({userProyects}) => {
     

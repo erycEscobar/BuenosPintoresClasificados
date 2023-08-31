@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "buenospintores-23a2b"
-  }
+    "default": "buenospintores-23a2b",
+    "buenosPintoresClasificados": "buenospintores-23a2b"
+  },
+  "targets": {},
+  "etags": {}
 }

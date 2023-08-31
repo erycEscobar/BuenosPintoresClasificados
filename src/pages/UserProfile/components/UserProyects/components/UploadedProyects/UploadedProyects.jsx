@@ -1,7 +1,8 @@
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react"
 import PropTypes from 'prop-types';
-import ListProyects from "./components/ListProyects.jsx/ListProyects";
+import ListProyects from "./components/ListProyects/ListProyects";
+//import ListProyects from "./components/ListProyects/ListProyects";
 
 const UploadedProyects = ({userId}) => {
 
@@ -21,7 +22,7 @@ const UploadedProyects = ({userId}) => {
         ))
     }, [userId])
     
-    console.log(proyects);
+    //console.log(proyects);
 
     return (
         <ListProyects userProyects={proyects} />

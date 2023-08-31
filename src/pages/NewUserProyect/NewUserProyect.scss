@@ -20,7 +20,7 @@
         flex-direction: row;
         align-items: flex-start;
         justify-content: center;
-
+        flex-wrap: wrap;
         width: 100%;
         gap: 50px;
 
@@ -111,4 +111,23 @@
         }
     }
 
+    .buttons_container {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .newUserProyect_container {
+        width: 100%;
+        padding: 10px;
+        form {
+            .newUserProyect_column02 {
+                width: 100%;
+                .newUserProyect_photoGallery {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

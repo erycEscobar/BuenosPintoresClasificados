@@ -34,6 +34,7 @@ export const UserLogContextProvider = ({children}) => {
                         plan1: newData.plan1,
                         plan2: newData.plan2,
                         plan3: newData.plan3,
+                        subscriptionEnd: newData.subscriptionEnd,
                     };
                     setUserInfo(userData);
                 }

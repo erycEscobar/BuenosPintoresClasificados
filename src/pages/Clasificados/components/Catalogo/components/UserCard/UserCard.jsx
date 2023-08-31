@@ -2,13 +2,12 @@ import './UserCard.scss';
 import { useFilterContext } from '../../../../filterContext/filterContext';
 import userIcon from '../../../../../../assets/photos/userIcon.png';
 import check from '../../../../../../assets/photos/check.png';
-import locationIcon from '../../../../../../assets/photos/locationIcon.png';
 
 import PropTypes from 'prop-types';
 
 const UserCard = ({userId, userData}) => {
 
-    console.log({userData, userId})
+    //console.log({userData, userId});
 
     const { setUserToShow } = useFilterContext();
 
@@ -21,37 +20,26 @@ const UserCard = ({userId, userData}) => {
 
     return (
         <div className="userCard_container">
-            <div className='userCard_column01'>
-                <ul>
-                    <li>
-                        {userData.userAvatar === '' ? (
-                            <img src={userIcon} alt="" />
-                        ):(
-                            <img src={userData.userAvatar} alt="" />
-                        )}
-                    </li>
-                </ul>
+            <div className='userCard_avatar'>
+                {userData.userAvatar === '' ? (
+                    <img src={userIcon} alt="" />
+                ):(
+                    <img src={userData.userAvatar} alt="" />
+            )}
             </div>
-            <div className='userCard_column02'>
-                <ul>
-                    <li>
-                        {userData.name} {userData.surName}
-                        <img className={userData.verificado ? 'verification' : 'noVerification'} src={check} alt=""/>
-                    </li>
-                    <li>
-                        ${userData.precio}/M2
-                    </li>
-                    <li>
-                        <img src={locationIcon} alt="" /> {userData.location}
-                    </li>
-                    <li>
-                        <button onClick={handleShowMoreData}>
-                            CONTACTAR
-                        </button>
-                    </li>
-                </ul>
-
-            </div>
+            <ul>
+                <li>
+                    {userData.name} {userData.surName}
+                    {/*
+                    <img className={userData.verificado ? 'verification' : 'noVerification'} src={check} alt=""/>
+                    */}
+                </li>
+                <li>
+                    <button onClick={handleShowMoreData}>
+                        CONTACTAR
+                    </button>
+                </li>
+            </ul>
         </div>
     )
 }

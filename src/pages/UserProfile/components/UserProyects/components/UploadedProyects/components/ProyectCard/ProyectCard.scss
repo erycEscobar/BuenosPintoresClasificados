@@ -12,6 +12,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    margin: 0 10px;
+    flex-shrink: 0;  
     
     cursor: pointer;
     transition: transform 0.15s ease-in-out; 
@@ -34,4 +37,14 @@
 
 .proyectCard_container:hover {
     transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+    .proyectCard_container {
+        width: 120px;
+        height: 170px;
+        .proyectCard_title {
+            font-size: 12px;
+        }
+    }
 }
