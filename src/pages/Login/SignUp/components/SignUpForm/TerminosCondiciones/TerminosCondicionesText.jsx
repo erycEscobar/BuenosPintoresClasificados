@@ -1,9 +1,9 @@
 import './TerminosCondicionesText.scss';
 
-const TerminosCondicionesText = ({handle}) => {
+const TerminosCondicionesText = () => {
 
     return (
-        <div className="terms-scroll-box" onScroll={handle}>
+        <div className="terms-scroll-box">
             Bienvenido a nuestra guía de pintores y clasificados. Al acceder y utilizar nuestros servicios, aceptas cumplir con los siguientes términos y condiciones: <br /> <br />
 
             Uso Responsable: Los usuarios se comprometen a utilizar este servicio de manera responsable y respetuosa, sin participar en actividades ilegales o dañinas. <br/> <br/>

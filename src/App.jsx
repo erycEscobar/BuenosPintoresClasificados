@@ -15,16 +15,6 @@ const SignOut = lazy(() => import("./pages/Login/SignOut/SignOut"))
 const Clasificados = lazy(() => import("./pages/Clasificados/Clasificados"))
 const LogScreen = lazy(() => import("./pages/Login/LogScreen/LogScreen"))
 const NewUserProyect = lazy(() => import("./pages/NewUserProyect/NewUserProyect"))
-/*
-import SignIn from './pages/Login/SignIn/SignIn';
-import SignUp from './pages/Login/SignUp/SignUp';
-import UserProfile from './pages/UserProfile/UserProfile';
-import SignOut from './pages/Login/SignOut/SignOut'
-import Clasificados from './pages/Clasificados/Clasificados'
-import Dev from './pages/Dev/Dev'
-import LogScreen from './pages/Login/LogScreen/LogScreen'
-import NewUserProyect from './pages/NewUserProyect/NewUserProyect'
-*/
 
 function App() {
   return (

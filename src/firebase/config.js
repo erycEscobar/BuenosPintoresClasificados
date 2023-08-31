@@ -12,16 +12,6 @@ const firebaseConfig = {
   appId: "1:411230213668:web:0ed438548a195504402ab1",
   measurementId: "G-2LGHJFLZBM"
 };
-/*
-const firebaseConfig = {
-  apiKey: "AIzaSyBAUuQ0CI_6KxqPtgTFDGdjo7VMhg0uTdU",
-  authDomain: "codertechstore.firebaseapp.com",
-  projectId: "codertechstore",
-  storageBucket: "codertechstore.appspot.com",
-  messagingSenderId: "444273763519",
-  appId: "1:444273763519:web:1f5ff3b652d5be8a4e520a"
-};
-*/
 
 const app = initializeApp(firebaseConfig);
 export const firebaseAuth = getAuth(app);
@@ -33,6 +23,3 @@ export async function uploadFile(file) {
   const url = await getDownloadURL(storageRef);
   return url
 }
-
-
-
