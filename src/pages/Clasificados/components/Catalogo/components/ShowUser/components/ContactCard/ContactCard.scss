@@ -1,0 +1,110 @@
+.contactCard_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .contactCard_hero {
+        width: 100%;
+        height: 500px;
+        overflow: hidden; 
+        position: relative;
+        background-color: #222222;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 2rem;
+
+        box-shadow: 0px 23px 207px 0px rgba(0,0,0,0.32);
+        -webkit-box-shadow: 0px 23px 207px 0px rgba(0,0,0,0.32);
+        -moz-box-shadow: 0px 23px 207px 0px rgba(0,0,0,0.32);
+
+        .contactCard_heroBackground {
+            top: 0;
+            position: absolute; /* Posición absoluta para que la imagen esté en el fondo del contenedor */
+            width: 100%; /* Ancho del 100% para que la imagen se ajuste al contenedor */
+            object-fit: cover; /* Ajusta la imagen para cubrir todo el contenedor sin deformarse */
+            opacity: 0.5;
+        }
+
+        .contactCard_userData {
+            position: relative;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            background-color: hsla(0, 0%, 13%, 0.25);
+
+
+            .contactCard_userName {
+                font-family: 'Montserrat-Bold';
+                color: #e7e7e7;
+                font-size: 3.5rem;
+            }
+
+            .contactCard_services {
+                font-family: 'Montserrat-Regular';
+                font-size: 2.5rem;
+                color: #e7e7e7;
+                text-decoration: underline;
+                text-align: right;
+                padding-top: 1rem;
+            }
+
+            .contactCard_servicesList {
+                font-family: 'Montserrat-Regular';
+                font-size: 1.5rem;
+                list-style: none;
+                color: #e7e7e7;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                
+                li {
+                    padding: 2.5px;
+                }
+            }
+            .contactCard_contactData {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding-top: 2rem;
+                li {
+                    font-family: 'Montserrat-Regular';
+                    font-size: 1.5rem;
+                    list-style: none;
+                    color: #e7e7e7;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    img {
+                        
+                        width: 2rem;
+                    }
+                }
+            }
+        }    
+
+    }
+
+    .contactCard_proyects {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        height: 300px;
+
+        overflow-x: auto;
+
+        .scrolling-wrapper {
+            display: flex;
+            gap: 10px; 
+            width: 100px;
+            
+        }
+
+    }
+}

@@ -8,6 +8,7 @@ import Modal from '../../../../../components/Modal/Modal';
 import { PersonalInfo } from '../../PersonalInfo';
 import ServiciosOfrecidos from './ServiciosOfrecidos/ServiciosOfrecidos';
 import PropTypes from 'prop-types';
+import TerminosCondiciones from './TerminosCondiciones/TerminosCondiciones';
 
 const SignUpForm = ({actualStep}) => {
 
@@ -46,21 +47,48 @@ const SignUpForm = ({actualStep}) => {
 
     console.log({signUpForm});
 
+    const dataVerification = () => {
+        if (
+            ((signUpForm.name 
+            || signUpForm.surName 
+            || signUpForm.location
+            || signUpForm.phoneNumber 
+            || signUpForm.email
+            || signUpForm.password) === ''
+            ) || (
+            signUpForm.precio === 0
+            ) || (
+            signUpForm.pinturaDeMadera
+            || signUpForm.trabajosEnAltura
+            || signUpForm.durlock
+            || signUpForm.exteriores   
+            ) === false ) {
+                return false
+            } else {
+                return true
+            }
+    }
+
     const Submit = async (e) => {
-        e.preventDefault();
-        setLoader(true);
-        try {
-            const infoUser = await createUser(signUpForm.email, signUpForm.password).then((firebaseData) => {
-                return firebaseData;
-            });
-            const firestore = getFirestore();
-            const docuRef = doc(firestore, `Users/${infoUser.user.uid}`);
-            setDoc(docuRef, {...signUpForm, uid:infoUser.user.uid});
-            setUserCreated(true);
-        } catch (e) {
-            console.log(e);
+        const Verification = dataVerification();
+        if (Verification) {
+            e.preventDefault();
+            setLoader(true);
+            try {
+                const infoUser = await createUser(signUpForm.email, signUpForm.password).then((firebaseData) => {
+                    return firebaseData;
+                });
+                const firestore = getFirestore();
+                const docuRef = doc(firestore, `Users/${infoUser.user.uid}`);
+                setDoc(docuRef, {...signUpForm, uid:infoUser.user.uid});
+                setUserCreated(true);
+            } catch (e) {
+                console.log(e);
+            }
+            setLoader(false);
+        } else {
+            alert('Todos los campos deben ser completados');
         }
-        setLoader(false);
     };
 
     return (
@@ -97,6 +125,7 @@ const SignUpForm = ({actualStep}) => {
                     </div>
                 ):( actualStep === 3 &&
                     <div className='signUp'>
+                        <TerminosCondiciones />
                         <button onClick={Submit}>CREAR CUENTA</button>
                     </div>
                 ))))}

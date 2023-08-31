@@ -21,7 +21,7 @@ const ModifyData = ({handleBack}) => {
 */
     const Submit = async (e) => {
         e.preventDefault();
-        console.log(itemsToModify);
+        //console.log(itemsToModify);
 
         try {
             const firestore = getFirestore();
@@ -30,7 +30,7 @@ const ModifyData = ({handleBack}) => {
                 ...itemsToModify,
             });
         } catch (e) {
-            console.log(e);
+            alert(e);
         }
         handleBack();
     }

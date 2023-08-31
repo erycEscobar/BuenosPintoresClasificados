@@ -8,7 +8,7 @@ import ShowUser from './components/ShowUser/ShowUser';
 
 const Catalogo = () => {
 
-    const { locationsFilter, selectedFilters, userToShow } = useFilterContext();
+    const { locationsFilter, filterByPrice, userToShow, filterWorkTypes } = useFilterContext();
     const [ users, setUsers ] = useState([]);
     const [ loader, setLoader ] = useState(true);
     const firebase = getFirestore();
@@ -18,19 +18,24 @@ const Catalogo = () => {
         let usersNeeded = query(usersCollection);
         
         if (locationsFilter && locationsFilter.length > 0) {
-            locationsFilter.map(filter => console.log(filter));
+            //locationsFilter.map(filter => console.log(filter));
             usersNeeded = query(usersCollection, where('location', 'in', locationsFilter.map(filter => filter)));
         }
-        /*
-        const activeSelectedFilters = selectedFilters.filter(filter => filter.isChecked);
-        console.log({activeSelectedFilters});
-        if (activeSelectedFilters.length > 0) {
-            activeSelectedFilters.map((filter) => {
-                console.log(filter)
-            })
-            //usersNeeded = query(usersCollection, where(usersNeeded, 'selectedField', 'in', activeSelectedFilters.map(filter => filter.value))) 
+
+        if (filterByPrice.min !== '' ) {
+            usersNeeded = query(usersCollection, where('precio', '>=', filterByPrice.min));
         }
-        */
+
+        if (filterByPrice.max !== '' ) {
+            usersNeeded = query(usersCollection, where('precio', '<=', filterByPrice.max));
+        }
+
+        filterWorkTypes.map((workType) => {
+            if (workType.isChecked) {
+                usersNeeded = query(usersCollection, where(`${workType.value}`, '==', true));
+            }
+        })
+
         getDocs(usersNeeded)
         .then(res => setUsers(
             res.docs.map(
@@ -41,11 +46,7 @@ const Catalogo = () => {
             )
         )) 
         setLoader(false);
-    }, [ locationsFilter, selectedFilters, firebase ])
-
-    console.log({users})
-
-
+    }, [ locationsFilter, filterByPrice, firebase, filterWorkTypes ])
 
     return (
         <div className='catalogo_container'>
@@ -54,11 +55,8 @@ const Catalogo = () => {
             ) : (
                 userToShow !== null ? (
                     <ShowUser />
-                ):(
-                    
+                ):(                    
                     <ListUsers users={users} />
-                    /*
-                    */ 
                 )
             )}
         </div>

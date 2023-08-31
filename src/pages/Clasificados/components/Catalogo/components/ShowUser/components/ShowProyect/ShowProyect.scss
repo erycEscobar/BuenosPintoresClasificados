@@ -1,0 +1,79 @@
+.showProyect_container {
+    position: relative;
+    display: flex;
+    flex: 1;
+}
+
+.showProyect_infoList {
+    position: relative;
+    font-family: 'Montserrat-Regular';
+    color: aliceblue;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.25);
+
+    li {
+        list-style: none;
+    }
+
+    .showProyect_workName {
+        font-family: 'Montserrat-Bold';
+        font-size: 2rem;
+    }
+
+    .showProyect_workTypesContainer {
+        padding-top: 1rem;
+        padding-left: 25px;
+        .showProyect_workTypes  {
+            li:first-child {
+
+                margin-left: -25px;
+                margin-bottom: 10px;
+                list-style: none;
+                font-family: 'Montserrat-Bold';
+                text-decoration: underline;
+            }
+            li {
+                list-style: circle;
+            }
+        }
+    }
+
+    .showProyect_workDescriptionContainer {
+        padding-bottom: 10px;
+        .showProyect_workDescription {
+            li:first-child {
+                margin: 20px 0px 10px 0px;
+                list-style: none;
+                font-family: 'Montserrat-Bold';
+                text-decoration: underline;
+            }
+            li:nth-child(2) {
+                max-width: 350px;
+                height: 230px;
+                overflow-x: auto;
+            }
+        }
+    }
+
+}
+.showProyect_photoContainer {
+    flex: 1;
+    .showProyect_photoGallery {
+        overflow-y: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        height: 100%;
+        .showProyect_photo {
+            position: relative;
+            max-width: 500px;
+            list-style: none;
+            flex-shrink: 0;
+            img {
+                position: relative;
+                width: 100%;
+            }
+        }
+    }
+}

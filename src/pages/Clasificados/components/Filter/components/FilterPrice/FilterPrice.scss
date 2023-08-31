@@ -1,0 +1,20 @@
+.filterPrice {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+    p {
+        font-family: 'Montserrat-Bold';
+    }
+    label {
+        font-family: 'Montserrat-Regular';
+        padding: 5px 0px;
+
+        input {
+            position: relative;
+            height: 40px;
+            width: 85%;
+            padding: 10px;
+            font-family: "Montserrat-Regular";
+        }
+    }
+}

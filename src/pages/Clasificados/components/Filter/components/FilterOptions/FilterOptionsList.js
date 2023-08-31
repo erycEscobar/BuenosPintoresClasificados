@@ -35,36 +35,5 @@ export const FilterOptionsList = [
         max: 0,
         isChecked: false,
     },
-    {
-        id: 6,
-        label: '$500-$1000/m2',
-        value: 'precio',
-        min: 500,
-        max: 1000,
-        isChecked: false,
-    },
-    {
-        id: 7,
-        label: '$1000-$5000/m2',
-        value: 'precio',
-        min: 1000,
-        max: 5000,
-        isChecked: false,
-    },
-    {
-        id: 8,
-        label: '$5000-$10000/m2',
-        value: 'precio',
-        min: 5000,
-        max: 10000,
-        isChecked: false,
-    },
-    {
-        id: 9,
-        label: '$10000-$15000/m2',
-        value: 'precio',
-        min: 10000,
-        max: 15000,
-        isChecked: false,
-    },
+
 ];

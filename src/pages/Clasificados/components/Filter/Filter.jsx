@@ -1,6 +1,8 @@
+import FilterExperience from './components/FilterExperience/FilterExperience';
 import FilterLocation from './components/FilterLocation/FilterLocation';
 import FilterLocationActives from './components/FilterLocationActives/FilterLocationActives';
-import FilterOptions from './components/FilterOptions/FilterOptions';
+import FilterPrice from './components/FilterPrice/FilterPrice';
+import FilterWorkType from './components/FilterWorkType/FilterWorkType';
 import './Filter.scss';
 
 const Filter = () => {
@@ -11,12 +13,15 @@ const Filter = () => {
                 <section className='filter_header'>
                     <p> ENCONTRA LO QUE ESTAS BUSCANDO </p>
                 </section>
-
+                <span className='filter_lineSeparator'></span>
                 <FilterLocation />
                 <FilterLocationActives />
-                <FilterOptions />
+                <span className='filter_lineSeparator'></span>
+                <FilterPrice />
+                <span className='filter_lineSeparator'></span>
+                <FilterWorkType />
+                <span className='filter_lineSeparator'></span>              
                 
-
                 </div>
             </div>
     )

@@ -1,21 +1,25 @@
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import './NewUserProyect.scss';
+import Modal from '../../components/Modal/Modal';
 import { useState } from 'react';
 import { firebaseStorage } from '../../firebase/config';
 import { v4 } from 'uuid';
 import { addDoc, collection, doc, getFirestore, increment, updateDoc } from 'firebase/firestore';
 import { UserAuth } from '../../userContext/userContext';
+import { useNavigate } from 'react-router-dom';
 
 const NewUserProyect = () => {
 
+    const navigate = useNavigate();
     const { userLogged } = UserAuth();
+    const [ proyectSaved, setProyectSaved ] = useState(false);
     const [ imgToUpload, setImgToUpload ] = useState([]);
     const [ workData, setWorkData ] = useState({
         workName: '',
         types: {
           durlock: false,
           exteriores: false,
-          pinturaEnMadera: false,
+          pinturaDeMadera: false,
           trabajosEnAltura: false,
         },
         description: '',
@@ -56,6 +60,23 @@ const NewUserProyect = () => {
             throw error;
         }
     }
+
+    const dataVerification = () => {
+        if ((
+            (workData.workName || workData.description) === ''
+            ) || (
+            imgToUpload.length === 0
+            ) || ((
+            workData.types[0]
+            || workData.types[1]
+            || workData.types[2]
+            || workData.types[3]
+            ) === false )){
+                return false
+            } else {
+                return true
+            }
+    }
     
     async function sendToFirebase(images) {
         const firestore = getFirestore();
@@ -70,34 +91,47 @@ const NewUserProyect = () => {
     }
 
     const handleGuardar = async () => {
-        try {
-            const uploadedImageUrls = await Promise.all(
-                imgToUpload.map(async (img) => {
-                    const imgUrl = await uploadImage(img);
-                    return imgUrl;
-                })
-            );
-
-            const images = [...workData.images, ...uploadedImageUrls];
-            console.log(images);
-            setWorkData((prevData) => ({
-                ...prevData,
-                images: images
-            }));
-            //console.log({ workData });
-            await sendToFirebase(images);
-            console.log("Trabajo guardado en Firebase");
-        } catch (error) {
-            console.error("Error:", error);
+        const Verification = dataVerification();
+        if (Verification) {
+            try {
+                const uploadedImageUrls = await Promise.all(
+                    imgToUpload.map(async (img) => {
+                        const imgUrl = await uploadImage(img);
+                        return imgUrl;
+                    })
+                );
+    
+                const images = [...workData.images, ...uploadedImageUrls];
+                console.log(images);
+                setWorkData((prevData) => ({
+                    ...prevData,
+                    images: images
+                }));
+                //console.log({ workData });
+                await sendToFirebase(images);
+                //console.log("Trabajo guardado en Firebase");
+                setProyectSaved(true);
+            } catch (error) {
+                alert("Error:", error);
+            }
+        } else {
+            alert('Todos los campos deben ser completados');
         }
     };
+
+    const handleVolver = () => {
+        navigate('/UserProfile')
+    }
 
     //console.log({workData, imgToUpload});
     
     return (
         <div className='newUserProyect_container'>
+            {proyectSaved ? (
+                <Modal msg='Trabajo guardado' link='/UserProfile' />
+            ):(
+                <>
             <form>
-
                 <div className='newUserProyect_column01'>
 
                     <label className='newUserProyect_label'>
@@ -163,8 +197,6 @@ const NewUserProyect = () => {
 
                 </div>
 
-
-
                 <div className='newUserProyect_column02'>
 
                     <label className='newUserProyect_label'>
@@ -189,7 +221,12 @@ const NewUserProyect = () => {
                 </div>
 
             </form>
-            <button onClick={handleGuardar}>GUARDAR</button>
+            <div className='buttons_container'>
+                <button onClick={handleGuardar}>GUARDAR</button>
+                <button onClick={handleVolver}>VOLVER</button>
+            </div>
+                </>
+            )}
         </div>
     );
 }
