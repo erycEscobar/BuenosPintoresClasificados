@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const ProyectCard = ({id, proyect}) => {
 
     const { selectedProyect, setSelectedProyect, setProyectToShow, proyectToShow, editProyect } = useFilterContext();
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     const handleClick = () => {
         if (proyectToShow === null) {
@@ -20,7 +20,7 @@ const ProyectCard = ({id, proyect}) => {
                 setProyectToShow(proyect);
             }
         } 
-        editProyect && navigate('/UserProfile/NewUserProyect');
+        //editProyect && navigate('/UserProfile/NewUserProyect');
     }
     
     //console.log(id, proyect);
