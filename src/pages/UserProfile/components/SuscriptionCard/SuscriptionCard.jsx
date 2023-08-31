@@ -13,11 +13,11 @@ const SuscriptionCard = ({planNumber, months, price, recomended}) => {
     const { userLogged } = UserAuth();
     const plan = 'plan' + planNumber;
     const [preferenceId, setPreferenceId] = useState();
-    const prodMode = import.meta.env.MODE === 'production';
+    const useProxy = import.meta.env.USE_PROXY;
 
     const handleComprar = async () => {
         
-        const req = await axios.get(prodMode ? `https://us-central1-buenospintores-23a2b.cloudfunctions.net?plan=${planNumber}` : `/api/app/create-preference?plan=${planNumber}`);
+        const req = await axios.get(useProxy ? `/api/app/create-preference?plan=${planNumber}` : `https://us-central1-buenospintores-23a2b.cloudfunctions.net?plan=${planNumber}`);
         setPreferenceId(req.data.id);
     }
 
