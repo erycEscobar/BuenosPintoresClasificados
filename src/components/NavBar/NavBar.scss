@@ -47,3 +47,30 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .navBar_container {
+        .navBar {
+            flex-wrap: wrap;
+            .navBarOptions_container {
+                display: flex;
+                flex: 1;
+                ul {
+                    flex: 1;
+                    justify-content: flex-end;
+                    li {
+                        a {
+                            font-size: 10px;
+                            width: 120px;
+                            height: 20px;
+                            padding: 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

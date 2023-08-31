@@ -15,6 +15,7 @@ const SignUpForm = ({actualStep}) => {
     const { createUser } = UserAuth();
     const [ loader, setLoader ] = useState(false);
     const [ userCreated, setUserCreated ] = useState(false);
+    const [ accepted, setAccepted ] = useState(false);
 
     const [ signUpForm, setSignUpForm ] = useState({
         name: '',
@@ -36,6 +37,7 @@ const SignUpForm = ({actualStep}) => {
         plan1: false,
         plan2: false,
         plan3: false,
+        subscriptionEnd: null,
     });
 
     const onChange = (e) => {
@@ -125,8 +127,8 @@ const SignUpForm = ({actualStep}) => {
                     </div>
                 ):( actualStep === 3 &&
                     <div className='signUp'>
-                        <TerminosCondiciones />
-                        <button onClick={Submit}>CREAR CUENTA</button>
+                        <TerminosCondiciones accepted={accepted} setAccepted={setAccepted}/>
+                        {accepted && <button onClick={Submit}>CREAR CUENTA</button>}
                     </div>
                 ))))}
             </div>

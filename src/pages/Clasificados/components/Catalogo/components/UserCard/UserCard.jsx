@@ -30,7 +30,9 @@ const UserCard = ({userId, userData}) => {
             <ul>
                 <li>
                     {userData.name} {userData.surName}
+                    {/*
                     <img className={userData.verificado ? 'verification' : 'noVerification'} src={check} alt=""/>
+                    */}
                 </li>
                 <li>
                     <button onClick={handleShowMoreData}>

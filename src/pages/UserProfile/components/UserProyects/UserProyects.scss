@@ -21,3 +21,12 @@
         //align-items: center;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .userProyects_container {
+        height: 275px;
+        .scrolling-wrapper {
+            width: 100%;
+        }
+    }
+}

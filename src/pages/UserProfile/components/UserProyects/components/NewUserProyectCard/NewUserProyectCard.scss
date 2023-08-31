@@ -33,3 +33,13 @@
 .newUserProyectCard_container:hover {
     transform: scale(1.1);
 }
+
+@media screen and (max-width: 768px) {
+    .newUserProyectCard_container {
+        width: 120px;
+        height: 170px;
+        .newUserProyectCard_instruction {
+            font-size: 12px;
+        }
+    }
+}

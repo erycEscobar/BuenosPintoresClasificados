@@ -65,7 +65,9 @@ const UserData = ({userInfo}) => {
                                 <span></span>
                             </li>
                             <li>
-                                Plan Contratado :
+                                {userInfo.plan1 && 'Plan Contratado : 1 Mes'}
+                                {userInfo.plan2 && 'Plan Contratado : 6 Meses'}
+                                {userInfo.plan3 && 'Plan Contratado : 1 Año'}
                             </li>
                         </ul>
                     </div>

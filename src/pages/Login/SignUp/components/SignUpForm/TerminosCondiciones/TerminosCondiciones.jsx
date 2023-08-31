@@ -2,10 +2,9 @@ import { useState } from 'react';
 import './TerminosCondiciones.scss';
 import TerminosCondicionesText from './TerminosCondicionesText';
 
-const TerminosCondiciones = () => {
+const TerminosCondiciones = ({accepted, setAccepted}) => {
 
     const [scrollPosition, setScrollPosition] = useState(0);
-    const [accepted, setAccepted] = useState(false);
     
     const handleScroll = (e) => {
         const { scrollTop, scrollHeight, clientHeight } = e.target;
@@ -17,7 +16,7 @@ const TerminosCondiciones = () => {
     const handleCheckboxChange = () => {
         if (scrollPosition === 0) {
           // User hasn't scrolled to the end of the terms.
-          alert("Please read the entire terms before accepting.");
+          alert("Por favor lea los terminos y condiciones");
         } else {
           setAccepted(!accepted);
         }
@@ -34,7 +33,7 @@ const TerminosCondiciones = () => {
                 onChange={handleCheckboxChange}
                 disabled={!accepted}
             />
-                I have read and accept the terms and conditions.
+                Acepto los términos y condiciones.
             </label>
         </div>
       );

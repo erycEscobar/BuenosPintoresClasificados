@@ -77,3 +77,19 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .showProyect_container {
+        flex-direction: column;
+    }
+    .showProyect_infoList {
+        height: 280px;
+        .showProyect_workDescriptionContainer {
+            .showProyect_workDescription {
+                li:nth-child(2) {
+                    height: 90px;
+                }
+            }
+        }
+    }
+}

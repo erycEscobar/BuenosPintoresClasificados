@@ -20,6 +20,7 @@ const UserProfile = () => {
         !(userInfo == ({})) && setLoader(false);
     }
 
+    
     const viewModify = () => {
         //console.log(userInfo);
         setModify(!modify);

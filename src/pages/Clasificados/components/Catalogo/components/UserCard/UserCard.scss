@@ -50,5 +50,10 @@
             }
         }
     }
+}
 
+@media screen and (max-width: 768px) {
+    .userCard_container {
+        width: 170px;
+    }
 }

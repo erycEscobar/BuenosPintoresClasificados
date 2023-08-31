@@ -108,3 +108,12 @@
 
     }
 }
+
+@media screen and (max-width: 768px) {
+    .contactCard_container {
+
+        .contactCard_hero {
+            height: 640px;
+        }
+    }
+}
