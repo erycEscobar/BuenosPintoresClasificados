@@ -3,6 +3,17 @@ const express = require('express');
 const app = express();
 const mercadopago = require('mercadopago');
 const functions = require('firebase-functions');
+const cors = require('cors');
+
+// Configura las opciones de CORS
+const corsOptions = {
+	origin: '*', // Cambia esto por tu dominio
+	methods: ['GET', 'POST'], // Métodos permitidos
+	optionsSuccessStatus: 204,
+};
+
+// Habilita CORS
+app.use(cors(corsOptions));
 
 mercadopago.configure({
 	access_token: "APP_USR-4157354041856173-081515-788a5e9fcbe5bb1fdd1d14488451a5c1-519941031",
