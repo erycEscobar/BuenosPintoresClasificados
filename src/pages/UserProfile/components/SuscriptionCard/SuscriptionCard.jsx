@@ -16,7 +16,6 @@ const SuscriptionCard = ({planNumber, months, price, recomended}) => {
     const devMode = import.meta.env.DEV;
 
     const handleComprar = async () => {
-        console.log(devMode)
         const req = await axios.get(devMode ? `/api/app/create-preference?plan=${planNumber}` : `https://us-central1-buenospintores-23a2b.cloudfunctions.net?plan=${planNumber}`);
         setPreferenceId(req.data.id);
     }
