@@ -42,8 +42,8 @@ app.get('/create-preference', (req, res) => {
 			}
 		],
 		back_urls: {
-			success: 'http://localhost:5173/UserProfile/paymentSuccess',
-			failure: 'http://localhost:5173/UserProfile/paymentFailure',
+			success: 'https://buenospintores-23a2b.web.app/UserProfile/paymentSuccess',
+			failure: 'https://buenospintores-23a2b.web.app/UserProfile/paymentFailure',
 			pending: ''
 		},
 		auto_return: 'approved'
