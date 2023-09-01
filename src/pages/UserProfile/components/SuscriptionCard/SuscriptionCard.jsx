@@ -13,11 +13,11 @@ const SuscriptionCard = ({planNumber, months, price, recomended}) => {
     const { userLogged } = UserAuth();
     const plan = 'plan' + planNumber;
     const [preferenceId, setPreferenceId] = useState();
-    const useProxy = import.meta.env.USE_PROXY;
+    const devMode = import.meta.env.DEV;
 
     const handleComprar = async () => {
-        
-        const req = await axios.get(useProxy ? `/api/app/create-preference?plan=${planNumber}` : `https://us-central1-buenospintores-23a2b.cloudfunctions.net?plan=${planNumber}`);
+        console.log(devMode)
+        const req = await axios.get(devMode ? `/api/app/create-preference?plan=${planNumber}` : `https://us-central1-buenospintores-23a2b.cloudfunctions.net?plan=${planNumber}`);
         setPreferenceId(req.data.id);
     }
 
@@ -34,7 +34,7 @@ const SuscriptionCard = ({planNumber, months, price, recomended}) => {
             const params = queryString.parse(window.location.search);
             const paymentId = params.payment_id;
     
-            const req = await axios.get(prodMode ? `https://us-central1-buenospintores-23a2b.cloudfunctions.net?id=${paymentId}` : `/api/app/notificaciones?id=${paymentId}`);
+            const req = await axios.get(devMode ? `https://us-central1-buenospintores-23a2b.cloudfunctions.net?id=${paymentId}` : `/api/app/notificaciones?id=${paymentId}`);
             const statusPayment = req.data.paymentInfo.body.status;
             
             if (statusPayment === 'approved') {
