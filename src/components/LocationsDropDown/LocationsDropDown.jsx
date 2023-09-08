@@ -2,13 +2,15 @@ import { useState } from 'react';
 import './LocationsDropDown.scss';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { BarriosCABA } from './BarriosCABA';
 import PropTypes from 'prop-types';
 
 const LocationsDropDown = ({locationSelected}) => {
 
-    const [ localidades, setLocalidades ] = useState([]);
+    const [ localidades, setLocalidades ] = useState(BarriosCABA);
     const [ selected, setSelected ] = useState('Selecciona una localidad');  
 
+    /*
     useEffect(() => {
         axios.get(`https://apis.datos.gob.ar/georef/api/municipios?provincia=6&campos=id,nombre&max=150`)
         .then((res) => {
@@ -18,6 +20,9 @@ const LocationsDropDown = ({locationSelected}) => {
             console.error(error);
         });
     }, []);    
+    */
+
+    //console.log(localidades);
 
     function findById(id, array) {
         return array.find(object => object.id === id);
@@ -26,9 +31,8 @@ const LocationsDropDown = ({locationSelected}) => {
     const handleSelect = (location) => {
         let locationId = location.target.value;
         let selectedLocation = findById(locationId, localidades);
-        console.log(localidades);
-        console.log(selectedLocation);
-        console.log(location.target.value);
+        //console.log(selectedLocation);
+        //console.log(location.target.value);
         setSelected(selectedLocation.id);
         locationSelected(selectedLocation.nombre);
     }

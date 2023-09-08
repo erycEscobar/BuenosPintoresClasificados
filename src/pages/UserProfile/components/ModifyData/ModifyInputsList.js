@@ -22,7 +22,7 @@ export const ModifyInputsList = [
     },
     {
         id: 4,
-        name: 'localidad',
+        name: 'location',
         placeholder: 'Localidad',
         type: 'text',
         autoComplete: 'off',

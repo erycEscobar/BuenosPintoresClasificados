@@ -29,7 +29,7 @@ const UploadFileButton = ({profilePhoto}) => {
                 try {
                     const urlImage = await uploadFile(selectedFile);
                     updateUserImage(urlImage);
-                    console.log(urlImage);
+                    //console.log(urlImage);
                 } catch (error) {
                     console.log(error);
                 }

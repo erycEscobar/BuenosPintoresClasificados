@@ -15,8 +15,6 @@ const UserProfile = () => {
     const { userInfo } = UserLog();
     const [ modify, setModify ] = useState(false);
     const [ loader, setLoader ] = useState(true);
-
-    console.log(Object.keys(userInfo).length);
     
     if (loader) {
         !(Object.keys(userInfo).length === 0) && setLoader(false);

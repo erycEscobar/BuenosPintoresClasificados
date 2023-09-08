@@ -29,7 +29,6 @@ const SignIn = () => {
         try {
             await signIn(signInForm.email, signInForm.password);
             setSignedIn(true);
-            console.log(signedIn)
         } catch (e) {
             console.log(e);
         }

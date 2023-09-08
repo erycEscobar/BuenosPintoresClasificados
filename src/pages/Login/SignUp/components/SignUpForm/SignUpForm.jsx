@@ -55,7 +55,7 @@ const SignUpForm = ({actualStep}) => {
         })
     };
 
-    console.log({signUpForm});
+    //console.log({signUpForm});
 
     const dataVerification = () => {
         if (
