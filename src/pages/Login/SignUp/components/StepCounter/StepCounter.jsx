@@ -1,4 +1,5 @@
 import './StepCounter.scss'
+import PropTypes from 'prop-types';
 
 const StepCounter = ({step}) => {
 
@@ -13,4 +14,9 @@ const StepCounter = ({step}) => {
     )
 
 }
+
+StepCounter.propTypes = {
+    step: PropTypes.number.isRequired,
+}
+
 export default StepCounter

@@ -9,6 +9,7 @@ import { PersonalInfo } from '../../PersonalInfo';
 import ServiciosOfrecidos from './ServiciosOfrecidos/ServiciosOfrecidos';
 import PropTypes from 'prop-types';
 import TerminosCondiciones from './TerminosCondiciones/TerminosCondiciones';
+import LocationsDropDown from '../../../../../components/LocationsDropdown/LocationsDropDown';
 
 const SignUpForm = ({actualStep}) => {
 
@@ -44,6 +45,13 @@ const SignUpForm = ({actualStep}) => {
         setSignUpForm({
             ...signUpForm,
             [e.target.name]: e.target.value
+        })
+    };
+
+    const onChangeLocation = (selectedLocation) => {
+        setSignUpForm({
+            ...signUpForm,
+            location: selectedLocation
         })
     };
 
@@ -110,6 +118,7 @@ const SignUpForm = ({actualStep}) => {
                             actualValues={signUpForm}
                             submitButton={false}
                         />
+                        <LocationsDropDown locationSelected={onChangeLocation} />
                     </div>
                 ):( actualStep === 2 ? (
                     <div className='signUp'>

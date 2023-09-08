@@ -7,14 +7,15 @@ import Home from './pages/Home/Home'
 import Footer from './components/Footer/Footer'
 import Loader from './components/Loader/Loader'
 import './App.scss'
+import Dev from './pages/Dev/Dev'
 
 const SignIn = lazy(() => import("./pages/Login/SignIn/SignIn"));
 const SignUp = lazy(() => import("./pages/Login/SignUp/SignUp"));
-const UserProfile = lazy(() => import("./pages/UserProfile/UserProfile"))
-const SignOut = lazy(() => import("./pages/Login/SignOut/SignOut")) 
-const Clasificados = lazy(() => import("./pages/Clasificados/Clasificados"))
-const LogScreen = lazy(() => import("./pages/Login/LogScreen/LogScreen"))
-const NewUserProyect = lazy(() => import("./pages/NewUserProyect/NewUserProyect"))
+const UserProfile = lazy(() => import("./pages/UserProfile/UserProfile"));
+const SignOut = lazy(() => import("./pages/Login/SignOut/SignOut")); 
+const Clasificados = lazy(() => import("./pages/Clasificados/Clasificados"));
+const LogScreen = lazy(() => import("./pages/Login/LogScreen/LogScreen"));
+const NewUserProyect = lazy(() => import("./pages/NewUserProyect/NewUserProyect"));
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                 <Route path='/UserProfile/NewUserProyect' element={<NewUserProyect />} />
                 <Route path='/Clasificados' element={<Clasificados /> } />
                 <Route path='/Loader' element={<Loader />} />
+                <Route path='/dev' element={<Dev />} />
               </Routes>
             </Suspense>
           <Footer />

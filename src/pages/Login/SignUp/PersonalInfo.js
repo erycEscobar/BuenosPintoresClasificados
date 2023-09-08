@@ -14,13 +14,6 @@ export const PersonalInfo = [
         autoComplete: 'off',
     },
     {
-        id: 6,
-        name: 'location',
-        placeholder: 'Localidad',
-        type: 'text',
-        autoComplete: 'off',
-    },
-    {
         id: 7,
         name: 'phoneNumber',
         placeholder: 'Numero de contacto',
